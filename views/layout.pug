@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block header
+      header
+        img(src='images/logo.png')
+        h1 Cocktail Machine
+    block content
+    block foot
+      footer
+        button(id='loginButton') Connexion
+        p Nous Contacter :
+          a(href='mailto:contact@derenty.net') contact@derenty.net
+        p Site devellopé par DerentyEnterprise © 2024

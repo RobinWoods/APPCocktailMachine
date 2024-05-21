@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  div(class='container')
+    select(id="alcoholSelector")
+      each alcohol in alcoholList
+        li
+        option= alcohol.alcoholName
+    select(id="softSelector")
+      each soft in softList
+        li
+        option(id=soft.softId)=soft.softName
+    input(id="percentage" type="range" name="percentage" min="0" max="100" value="50" step="5")
+    span(id='percentageValue')
+
+    button(id='sendButton' name='sendButton') Envoyer
+
+  script(src='/javascripts/cocktail.js')
