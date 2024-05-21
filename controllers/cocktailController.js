@@ -30,17 +30,17 @@ async function getAllPresent(req, res){
 }
 
 async function sendRecipeWithMQTT(req, res){
-    const client = mqtt.connect('mqtt://coloc.derenty.net', {
-        port: 62810,
-        username: 'ha-mqtt',
-        password: 'ha-mqtt',
+    const client = mqtt.connect(`mqtt://${process.env.mqttAdress}`, {
+        port: process.env.mqttPORT,
+        username: process.env.mqttUser,
+        password: process.env.mqttPassword,
     });
 
     client.on("connect", ()=>{
         console.log("Connected to MQTT");
-        client.subscribe('test', () => {
+        client.subscribe('cocktailMachine', () => {
         })
-        client.publish('test', JSON.stringify(req.body), (error) => {
+        client.publish('cocktailMachine', JSON.stringify(req.body), (error) => {
             if (error) {
                 console.error(error)
             }
