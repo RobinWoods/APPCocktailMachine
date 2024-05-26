@@ -8,10 +8,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
         const alcoholSelected = document.getElementById('alcoholSelector').value;
         const softSelected = document.getElementById('softSelector').value;
         const percentageSelected = document.getElementById('percentage').value;
+        const sizeSelected = document.getElementById('size').value;
         const recipeSelected = {
             alcohol : alcoholSelected,
             soft : softSelected,
             percentage : percentageSelected,
+            size:sizeSelected
         }
         const response = await makeCocktail(recipeSelected);
         alert(response.message);
